@@ -24,8 +24,6 @@ docker run -d -it --name chipMySQL -p=3306:3306 --env="MYSQL_ROOT_PASSWORD=<add 
 ```
 
 
-
-
 - See if service is running
 '''
 docker ps
