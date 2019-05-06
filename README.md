@@ -64,17 +64,3 @@ CREATE TABLE IF NOT EXISTS `drivers` (   `id` int(11) NOT NULL AUTO_INCREMENT,  
 ```
 insert into drivers (name, number) values ('Brad Keselowski', 2), ('Kyle Bush', 18);
 ```
-
-### Node Setup
-
-- Install Node Modules
-```
-npm init
-npm init –yes
-npm install express –save
-npm install mysql –save
-npm install body-parser
-npm install --save dotenv
-```
-
-- Create a file called .env
