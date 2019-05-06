@@ -1,6 +1,8 @@
 'use strict';
 
 var Driver = require('../model/appModel.js');
+var PracticeData = require('../model/PracticeData.js');
+
 //bring in https library for rest calls
 var Https = require('https');
 
@@ -105,5 +107,16 @@ exports.add_drivers_for_race = function(req, res) {
   console.log("Error getting json from nascar.com: " + err.message);
 });
 
+
+};
+
+//Collect Practice Data from Rest Services
+exports.get_practice_data = function(req, res) {
+  console.log("Inside exports.get_practice_data");
+  PracticeData.getPracticeData(req.params.raceId, function(err, output) {
+    if (err)
+    res.send(err);
+    res.json(output);
+  });
 
 };

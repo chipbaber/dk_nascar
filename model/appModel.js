@@ -8,6 +8,7 @@ var Driver = function(driver){
     this.number = driver.number;
 };
 
+
 Driver.getAllDrivers = function getAllDriver(result) {
         sql.query("Select * from drivers", function (err, res) {
 

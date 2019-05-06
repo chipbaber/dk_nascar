@@ -1,4 +1,4 @@
-'user strict';
+/**/'user strict';
 //shared user connection for REST services
 var mysql = require('mysql');
 

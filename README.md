@@ -7,8 +7,8 @@ This code base is a exploration in MySQL/Node js with the goal of testing out co
 ```
 npm init
 npm init –yes
-npm install express –save
-npm install mysql –save
+npm install express -save
+npm install mysql -save
 npm install body-parser
 npm install --save dotenv
 ```

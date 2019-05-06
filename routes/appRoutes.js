@@ -19,4 +19,7 @@ module.exports = function(app) {
    app.route('/buildRace/')
        .post(driverList.add_drivers_for_race);
 
+   app.route('/getPracticeData/:raceId')
+    .get(driverList.get_practice_data);
+
     };
