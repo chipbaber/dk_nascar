@@ -2,16 +2,17 @@ const express = require('express'),
   app = express(),
   bodyParser = require('body-parser');
   port = process.env.PORT || 8081;
-
+  require('dotenv').config();
 
 const mysql = require('mysql');
 
 // connection configurations
 const mc = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  password : '-------',
-  database : 'dk_nascar'
+  connectionLimit : process.env.DB_CONLIMIT,
+  host     : process.env.DB_HOST,
+  user     : process.env.DB_USER,
+  password : process.env.DB_PASSWORD,
+  database : process.env.DB_DATABASE
 });
 
 mc.connect(function(err) {
