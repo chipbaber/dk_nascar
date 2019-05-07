@@ -11,6 +11,7 @@ npm install express -save
 npm install mysql -save
 npm install body-parser
 npm install --save dotenv
+npm install node-fetch
 ```
 
 - Create a file called .env

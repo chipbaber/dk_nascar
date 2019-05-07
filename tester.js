@@ -1,26 +1,19 @@
-console.log("Testing JSON Object Creation");
-var practiceData ={};
+console.log("Testing fetch/reduce");
+const fetch = require('node-fetch');
 
-var number = 26;
-//add element
-practiceData[number] = {};
-practiceData[number].name = "Chip";
-practiceData[number].firstPracticeRank = 1;
-//add element
-number = 17;
-practiceData[number] = {};
-practiceData[number].name = "Ricky";
-practiceData[number].firstPracticeRank = 2;
+//var practice1 =  fetch('https://www.nascar.com/cacher/2019/1/4783/entryList.json');
+//practice1.then(data => data.json()).then(json => console.log(json)).catch(err=>console.log(err));
 
-console.log(practiceData);
+//or
+var url = "https://www.nascar.com/cacher/2019/1/4783/entryList.json";
+var getData = async url => {
+  try {
+    var response = await fetch(url);
+    var json = await response.json();
+    console.log(json);
+  } catch (error) {
+    console.log(error);
+  }
+};
 
-console.log("Update Name Element");
-practiceData[26].name = "Chip Baber";
-
-console.log(practiceData);
-
-console.log("Delete Leads");
-
-delete practiceData[17];
-
-console.log(practiceData);
+getData(url);
