@@ -1,5 +1,6 @@
 'user strict';
 var sql = require('./db.js');
+
 //define the queries for the REST Services
 
 //Driver object constructor

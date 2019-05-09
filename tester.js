@@ -11,14 +11,14 @@ var getData = async url => {
   try {
     var response = await fetch(url);
     var json = await response.json();
-    var temp ={};
+
     console.log(json);
     /*reducing*/
     var json = json.reduce(function(pv, cv) {
        pv[cv.vehicle_number]={};
+       pv[cv.vehicle_number].vehicle_number = cv.vehicle_number;
        pv[cv.vehicle_number].driver_name = cv.driver_name;
-       
-        return pv;
+       return pv;
     }, {});
 
  console.log(json);
