@@ -24,3 +24,7 @@ console.log("Delete Leads");
 delete practiceData[17];
 
 console.log(practiceData);
+
+var a = "*27";
+
+console.log(a.replace( /\D+/g, ''));
