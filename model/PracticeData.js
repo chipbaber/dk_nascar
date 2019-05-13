@@ -21,16 +21,40 @@ PracticeData.getPracticeData = async function(raceId, result) {
        pv[cv.vehicle_number].practice3_rank = 0;
        return pv;
     }, {});
-    //get Practice One Rankings
-    response = await fetch(url+'/practice1.json');
-    var p1 = await response.json();
 
-    //loop through result and add in practice 1 rank
-    var keys = Object.keys(p1);
-    for( var i = 0,length = keys.length; i < length; i++ ) {
-          entryList[p1[keys[i]].car_number.replace( /\D+/g, '')].practice1_rank = p1[keys[i]].finishing_position;
+      //get Practice One Rankings
+      try {
+      console.log("Retrieving Practice 1 Data");
+      response = await fetch(url+'/practice1.json');
+      var p1 = await response.json();
+      //loop through result and add in practice 1 rank
+      var keys = Object.keys(p1);
+      for( var i = 0,length = keys.length; i < length; i++ ) {
+            entryList[p1[keys[i]].car_number.replace( /\D+/g, '')].practice1_rank = p1[keys[i]].finishing_position;
+      }
+      //clear p1
+      p1={};
+      }
+    catch (error) {
+        console.log("Error retrieving practice 1 data  "+ error);
+      }
 
+
+    //get Practice 2 Rankings
+    try {
+      console.log("Retrieving Practice 2 Data");
+      response = await fetch(url+'/practice2.json');
+      var p2 = await response.json();
+      //loop through result and add in practice 1 rank
+      var keys = Object.keys(p2);
+      for( var i = 0,length = keys.length; i < length; i++ ) {
+            entryList[p2[keys[i]].car_number.replace( /\D+/g, '')].practice2_rank = p2[keys[i]].finishing_position;
+      }
     }
+    catch (error) {
+        console.log("Error retrieving practice 2 data  "+ error);
+    }
+
 
     result(null, entryList);
   }
