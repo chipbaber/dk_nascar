@@ -19,6 +19,7 @@ PracticeData.getPracticeData = async function(raceId, result) {
        pv[cv.vehicle_number].practice1_rank = 0;
        pv[cv.vehicle_number].practice2_rank = 0;
        pv[cv.vehicle_number].practice3_rank = 0;
+       pv[cv.vehicle_number].qualified = 0;
        return pv;
     }, {});
 
@@ -50,11 +51,26 @@ PracticeData.getPracticeData = async function(raceId, result) {
       for( var i = 0,length = keys.length; i < length; i++ ) {
             entryList[p2[keys[i]].car_number.replace( /\D+/g, '')].practice2_rank = p2[keys[i]].finishing_position;
       }
+      p2={};
     }
     catch (error) {
         console.log("Error retrieving practice 2 data  "+ error);
     }
 
+    //Qualifiing
+    try {
+      console.log("Retrieving Qualifiing Data");
+      response = await fetch(url+'/qualification.json');
+      var q = await response.json();
+      //loop through result and add in practice 1 rank
+      var keys = Object.keys(q);
+      for( var i = 0,length = keys.length; i < length; i++ ) {
+            entryList[q[keys[i]].car_number.replace( /\D+/g, '')].qualified = q[keys[i]].finishing_position;
+      }
+    }
+    catch (error) {
+        console.log("Error retrieving qualifiy results  "+ error);
+    }
 
     result(null, entryList);
   }
