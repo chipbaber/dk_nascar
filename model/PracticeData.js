@@ -37,7 +37,12 @@ PracticeData.getPracticeData = async function(raceId, result) {
       p1={};
       }
     catch (error) {
+      if (error.toString().substring(0,10) == 'FetchError') {
+          console.log("FetchError");
+      }
+      else {
         console.log("Error retrieving practice 1 data  "+ error);
+      }
       }
 
 
@@ -54,7 +59,32 @@ PracticeData.getPracticeData = async function(raceId, result) {
       p2={};
     }
     catch (error) {
+      if (error.toString().substring(0,10) == 'FetchError') {
+          console.log("FetchError");
+      }
+      else {
         console.log("Error retrieving practice 2 data  "+ error);
+      }
+    }
+    //get Practice 3 Rankings
+    try {
+      console.log("Retrieving Practice 3 Data");
+      response = await fetch(url+'/practice3.json');
+      var p3 = await response.json();
+      //loop through result and add in practice 1 rank
+      var keys = Object.keys(p3);
+      for( var i = 0,length = keys.length; i < length; i++ ) {
+            entryList[p3[keys[i]].car_number.replace( /\D+/g, '')].practice2_rank = p3[keys[i]].finishing_position;
+      }
+      p2={};
+    }
+    catch (error) {
+        if (error.toString().substring(0,10) == 'FetchError') {
+            console.log("FetchError");
+        }
+        else {
+        console.log("Error retrieving practice 3 data  "+ error);
+      }
     }
 
     //Qualifiing
@@ -69,7 +99,12 @@ PracticeData.getPracticeData = async function(raceId, result) {
       }
     }
     catch (error) {
+      if (error.toString().substring(0,10) == 'FetchError') {
+          console.log("FetchError");
+      }
+      else {
         console.log("Error retrieving qualifiy results  "+ error);
+      }
     }
 
     result(null, entryList);
