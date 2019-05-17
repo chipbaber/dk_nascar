@@ -5,6 +5,7 @@ var PracticeData = {};
 PracticeData.getPracticeData = async function(raceId, result) {
   console.log("Race Id Is: "+raceId);
   var url = 'https://www.nascar.com/cacher/2019/1/'+raceId;
+  var hasP1, hasP2, hasP3, hasQ = false;
 
   // get the entry list
   try {
@@ -35,6 +36,7 @@ PracticeData.getPracticeData = async function(raceId, result) {
       }
       //clear p1
       p1={};
+      hasP1=true;
       }
     catch (error) {
       if (error.toString().substring(0,10) == 'FetchError') {
@@ -57,6 +59,7 @@ PracticeData.getPracticeData = async function(raceId, result) {
             entryList[p2[keys[i]].car_number.replace( /\D+/g, '')].practice2_rank = p2[keys[i]].finishing_position;
       }
       p2={};
+      hasP2=true;
     }
     catch (error) {
       if (error.toString().substring(0,10) == 'FetchError') {
@@ -76,7 +79,8 @@ PracticeData.getPracticeData = async function(raceId, result) {
       for( var i = 0,length = keys.length; i < length; i++ ) {
             entryList[p3[keys[i]].car_number.replace( /\D+/g, '')].practice2_rank = p3[keys[i]].finishing_position;
       }
-      p2={};
+      p3={};
+      hasP3=true;
     }
     catch (error) {
         if (error.toString().substring(0,10) == 'FetchError') {
@@ -97,6 +101,8 @@ PracticeData.getPracticeData = async function(raceId, result) {
       for( var i = 0,length = keys.length; i < length; i++ ) {
             entryList[q[keys[i]].car_number.replace( /\D+/g, '')].qualified = q[keys[i]].finishing_position;
       }
+      q={};
+      hasQ=true;
     }
     catch (error) {
       if (error.toString().substring(0,10) == 'FetchError') {
