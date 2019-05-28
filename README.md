@@ -1,5 +1,5 @@
-# dk_nascar
-This code base is a exploration in MySQL/Node js with the goal of testing out composite RESt service creation of public websites related to nascar and draftkings.
+# Nascar Data Composite Service Request
+This code base is a exploration in MySQL/Node js with the goal of testing out composite REST service creation of public websites related to nascar.
 
 ### Node Setup
 
@@ -33,11 +33,6 @@ docker ps
 - Start Service
 '''
 docker start chipMySQL
-'''
-
-- Connect into MySQL Image
-'''
-https://github.com/chipbaber/dk_nascar.git
 '''
 
 - Connect into Database
