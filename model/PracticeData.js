@@ -139,6 +139,13 @@ PracticeData.getPracticeData = async function(raceId, result) {
     }
 
     //Computations on qualifing Data
+    /*researched other Race API's here are notes to add in
+    raceResults.json
+lapAvg_mencs_final_practice.json
+lapAvg_mencs_practice_1.json
+lapAvg_mencs_practice_2.json
+https://www.nascar.com/json/drivers/
+    */
     try {
       for (var car in entryList) {
           entryList[car].consistency = entryList[car].practice1_rank + entryList[car].practice2_rank + entryList[car].practice3_rank + entryList[car].qualified;
