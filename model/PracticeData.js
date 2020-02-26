@@ -2,6 +2,22 @@
 const fetch = require('node-fetch');
 var PracticeData = {};
 
+
+/*getPracticeData
+To build the composite application we need to access several REST API sources.
+The core REST API path is:
+https://www.nascar.com/cacher/<add year>/1/<add race id>/<json name>
+Example:
+https://www.nascar.com/cacher/2020/1/4873/raceResults.json
+Other key json names are:
+entryList.json
+practice1.json
+practice2.json
+practice3.json
+lapAvg_old_practice_1.json
+lapAvg_old_final_practice.json
+raceResults.json
+*/
 PracticeData.getPracticeData = async function(raceId, result) {
   var startTime = (new Date()).getTime();
   var loadtime = 0;
