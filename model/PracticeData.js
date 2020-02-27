@@ -1,7 +1,8 @@
 'user strict';
 const fetch = require('node-fetch');
 var PracticeData = {};
-
+//to Log or not to log variable
+var printLogs = true;
 
 /*getPracticeData
 To build the composite application we need to access several REST API sources.
@@ -184,6 +185,13 @@ https://www.nascar.com/json/drivers/
   }
 
 };
+
+//Simple function to output logs in testing
+function logger(textToPrint) {
+  if (printLogs) {
+  console.log(textToPrint);
+  }
+}
 
 
 module.exports= PracticeData;
