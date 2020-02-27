@@ -5,6 +5,8 @@ node_modules/
 # Compiled source #
 ###################
 *.env
+package.json
+paclage-lock.json
 
 # Packages #
 ############

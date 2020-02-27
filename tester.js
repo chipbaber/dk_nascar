@@ -6,7 +6,7 @@ practice1.then(data => data.json()).then(json => console.log(json)).catch(err=>c
 */
 //or async
 
-var url = "https://www.nascar.com/cacher/2019/1/4783/entryList.json";
+var url = "https://www.nascar.com/cacher/2020/1/4873/entryList.json";
 var getData = async url => {
   try {
     var response = await fetch(url);

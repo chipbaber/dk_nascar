@@ -19,7 +19,7 @@ module.exports = function(app) {
    app.route('/buildRace/')
        .post(driverList.add_drivers_for_race);
 
-   app.route('/getPracticeData/:raceId')
+   app.route('/getPracticeData/:raceId&:raceYear')
     .get(driverList.get_practice_data);
 
     };

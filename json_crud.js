@@ -1,3 +1,4 @@
+//simple scratchpad to play with formatting of json object formation 
 console.log("Testing JSON Object Creation");
 var practiceData ={};
 

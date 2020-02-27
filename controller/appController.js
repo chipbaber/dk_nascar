@@ -113,7 +113,7 @@ exports.add_drivers_for_race = function(req, res) {
 //Collect Practice Data from Rest Services
 exports.get_practice_data = function(req, res) {
   console.log("Inside exports.get_practice_data");
-  PracticeData.getPracticeData(req.params.raceId, function(err, output) {
+  PracticeData.getPracticeData(req.params.raceId, req.params.raceYear, function(err, output) {
     if (err)
     res.send(err);
     res.json(output);

@@ -18,11 +18,11 @@ lapAvg_old_practice_1.json
 lapAvg_old_final_practice.json
 raceResults.json
 */
-PracticeData.getPracticeData = async function(raceId, result) {
+PracticeData.getPracticeData = async function(raceId, raceYear, result) {
   var startTime = (new Date()).getTime();
   var loadtime = 0;
   console.log("Race Id Is: "+raceId);
-  var url = 'https://www.nascar.com/cacher/2019/1/'+raceId;
+  var url = 'https://www.nascar.com/cacher/'+raceYear+'/1/'+raceId;
   var hasP1, hasP2, hasP3, hasQ = false;
 
   // get the entry list

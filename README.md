@@ -2,17 +2,36 @@
 This code base is a exploration in MySQL/Node js with the goal of testing out composite REST service creation of public websites related to nascar.
 
 ### Node Setup
+- clone down the code respo
+  ```
+  git clone https://github.com/chipbaber/dk_nascar.git
+  ```
+- Navigate into the directory
+  ```
+  cd dk_nascar
+  ```
 
-- Install the following Node Modules into your directory
-```
-npm init
-npm init –yes
-npm install express -save
-npm install mysql -save
-npm install body-parser
-npm install --save dotenv
-npm install node-fetch
-```
+- Turn the following commands in order to install the following Node Modules into your directory. Please note that the git modules are not pushed to github. To modify edit the .gitignore file.
+  ```
+  npm init
+  npm install express -save
+  npm install mysql -save
+  npm install body-parser
+  npm install --save dotenv
+  npm install node-fetch
+  ```
+
+- [Note to self] If using ATOM-runner alt-R will run the command
+
+- Start Composite rest service
+  ```
+  node server.js
+  ```
+
+- Look at baseline composite rest results in your browser.
+  ```
+  http://localhost:8081/getPracticeData/4873&2020
+  ```
 
 - Create a file called .env
 
