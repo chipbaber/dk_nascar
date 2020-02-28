@@ -31,7 +31,7 @@ var getData = async url => {
     console.log(error);
   }
 };
-*/
+
 
 //testing Data Map Function
 var getData = async url => {
@@ -59,7 +59,20 @@ var getData = async url => {
   }
 };
 
-getData(url);
+getData(url);*/
+
+//function to convert 999 and null fields to 0
+function lpDataFix(num) {
+  if (num==null) {
+    return 0;
+  }
+  if (num == 999){
+    return 0;
+  }
+  return num;
+}
+
+logger(lpDataFix(5));
 
 //Simple function to output logs in testing
 function logger(textToPrint) {
