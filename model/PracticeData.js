@@ -193,7 +193,45 @@ PracticeData.getPracticeData = async function(raceId, raceYear, result) {
     //Computations on qualifing Data
     try {
       for (var car in entryList) {
+          //set consistency ranking
           entryList[car].consistency = entryList[car].practice1_rank + entryList[car].practice2_rank + entryList[car].practice3_rank + entryList[car].qualified;
+
+          //if practice 3 exists then it is final practice, else leverage practice 2, if no practice 2 use practice 1
+          if (hasP3) {
+            //set speed Ranking Qualifing - finalpractice speed
+            entryList[car].speedRank = entryList[car].qualified - entryList[car].practice3_rank;
+
+            //set ten lap Ranking if ten lap avg was driven in practice, else leave zero
+            if (entryList[car].tenLap>0) {
+               entryList[car].tenLapRank = entryList[car].qualified - entryList[car].tenLap;
+               //set powerRank if 10 lap driven, else leave 0
+               entryList[car].powerRank = entryList[car].tenLapRank +entryList[car].speedRank;
+            }
+
+
+          }
+          else if (hasP2) {
+            entryList[car].speedRank = entryList[car].qualified - entryList[car].practice2_rank;
+            //set ten lap Ranking
+            if (entryList[car].tenLap>0) {
+               entryList[car].tenLapRank = entryList[car].qualified - entryList[car].tenLap;
+               entryList[car].powerRank = entryList[car].tenLapRank +entryList[car].speedRank;
+            }
+
+          }
+          else {
+            //use practice 1
+            entryList[car].speedRank = entryList[car].qualified - entryList[car].practice1_rank;
+            //set ten lap Ranking
+            if (entryList[car].tenLap>0) {
+               entryList[car].tenLapRank = entryList[car].qualified - entryList[car].tenLap;
+               entryList[car].powerRank = entryList[car].tenLapRank +entryList[car].speedRank;
+            }
+          }
+          //set ten lap Ranking
+
+          //set powerRank
+
       }
     }
     catch (error) {
