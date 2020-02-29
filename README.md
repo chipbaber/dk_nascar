@@ -21,7 +21,7 @@ This code base is a exploration in MySQL/Node js with the goal of testing out co
   npm install node-fetch
   ```
 
-- [Note to self] If using ATOM-runner alt-R will run the command
+- [Note to self] If using ATOM-runner alt-R will run the command, esc to close. Also install ATOM REST Client plugin for easily testing.
 
 - Start Composite rest service
   ```
